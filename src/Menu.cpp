@@ -1,104 +1,68 @@
-/*
- * Menu.cpp
- *
- *  Created on: May 22, 2016
- *      Author: raydelto
- */
-
-#include "Menu.h"
 #include <iostream>
+#include <stdlib.h>
+
 using namespace std;
 
-Menu::Menu()
-{
+void start menu();
+void listArticles();
+void intoArticles();
+void suprArticle();
 
+int main()
+{
+  startMenu();
 }
 
-void Menu::clearScreen()
+void menuBegging()
 {
-	#ifdef _WIN32
-	system("cls");
-	#else
-	system("clear");
-	#endif
+    int option;
+    cout << "\n1- ListArticle \n";
+    cout << "2- IntrArticle \n";
+    cout << "3- SuprArticle\n";
+    cout << "4- Exit\n";
+    cout << "Option select =>\n";
+    cin>>option;
+    cout<<"\n";
+
+    switch(option)
+    {
+    case 1:
+            cout<<"Case1\n";
+            listArticles();
+            break;
+    case 2:
+            cout<<"Case2\n";
+            intoArticles();
+            break;
+    case 3:
+            cout<<"Case3\n";
+            suprArticles();
+
+            break;
+    case 4:
+            cout<<"Exit s\n";
+            exit(0);
+            break;
+    default:
+            cout<<"opcion incorrect";
+            start menu();
+    }
 }
 
-void Menu::pause()
+void listArticle()
 {
-	#ifdef _WIN32
-	system("pause");
-	#else
-	system("read -n1 -r -p \"Press any key to continue...\" key");
-	#endif
+    cout<<"ListArticle\n";
+    Start Menu();
 }
 
-
-bool Menu::validate(int option)
+void intoArticles()
 {
-	if(option >= 1 && option <= 4)
-	{
-		return true;
-	}else
-	{
-		cout << "Please pick an option between 1 and 4"<< endl;
-		pause();
-		return false;
-	}
+     cout<<"IntoArticles\n";
+     menuPrincipal();
 }
 
-void Menu::routeAction(int option)
+void SuprArticle()
 {
-	switch(option)
-	{
-	case 1:
-		listItems();
-		break;
-	case 2:
-		addItems();
-		break;
-	case 3:
-		removeItems();
-		break;
-	case 4:
-		cout << "Thanks for using our software, good bye!" << endl;
-	}
-	pause();
-}
-
-void Menu::listItems()
-{
-	//TODO: Implement this
-	cout << "Implement  Menu::listItems" << endl;
-}
-
-void Menu::addItems()
-{
-	//TODO: Implement this
-	cout << "Implement  Menu::addItems" << endl;
-}
-
-void Menu::removeItems()
-{
-	//TODO: Implement this
-	cout << "Implement  Menu::removeItems" << endl;
-}
-
-void Menu::show()
-{
-	int option;
-	do
-	{
-		clearScreen();
-		cout << "ITLA Shopping List" << endl;
-		cout << "1- List items" << endl;
-		cout << "2- Add Item" << endl;
-		cout << "3- Remove Item" << endl;
-		cout << "4- Exit" << endl;
-		cout << "Select an option => ";
-		cin >> option;
-		if(validate(option))
-		{
-			routeAction(option);
-		}
-	}while(option !=4);
+     cout<<"SupriArticle\n";
+     StartMenu();
 }
